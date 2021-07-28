@@ -34,9 +34,29 @@ const routes = [
         component: () => import('./views/Doctor')
     },
     {
-        path: '/viewStudent',
+        path: '/viewStudent/:id',
         name: 'ViewStudent',
         component: () => import('./views/StudentView')
+    },
+    {
+        path: '/appointment',
+        name: 'Appointment',
+        component: () => import('./views/Appointment')
+    },
+    {
+        path: '/settings',
+        name: 'Settings',
+        component: () => import('./views/Settings')
+    },
+    {
+        path: '/student/appointment',
+        name: 'StudentAppointment',
+        component: () => import('./views/StudentAppointment')
+    },
+    {
+        path: '/student/profile',
+        name: 'StudentProfile',
+        component: () => import('./views/StudentProfile')
     }
 ]
 

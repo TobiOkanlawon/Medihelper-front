@@ -1,21 +1,20 @@
 <template>
-<div class="form">
-
-    <div class="tabBar">
-        <div @click="tabOne" :class="tabOneActive ? 'active': 'inactive' ">
+<div class="form border-1 border-gray-300 rounded-lg">
+    <div class="tabBar flex capitalize">
+        <button @click="tabOne" class="px-2 py-4 w-full" :class="tabOneActive ? 'bg-blue-1000 text-blue-50': 'text-blue-1000 bg-blue-200' ">
             <slot name="header1" />
-        </div>
-        <div @click="tabTwo" :class="!tabOneActive ? 'active': 'inactive'">
+        </button>
+        <button @click="tabTwo" class="px-2 py-4 w-full" :class="!tabOneActive ? 'bg-blue-1000 text-blue-50': 'text-blue-1000 bg-blue-200'">
             <slot name="header2" />
-        </div>
+        </button>
     </div>
 
-        <div v-show="tabOneActive">
-            <slot name="content1" />
-        </div>
-        <div v-show="!tabOneActive">
-            <slot name="content2" />
-        </div>
+    <div v-show="tabOneActive">
+        <slot name="content1" />
+    </div>
+    <div v-show="!tabOneActive">
+        <slot name="content2" />
+    </div>
 </div>
 </template>
 
@@ -26,24 +25,14 @@ export default {
             tabOneActive: true,
         }
     },
-    emthods: {
+    methods: {
         tabOne(){
             this.tabOneActive = true;
+
         },
         tabTwo(){
             this.tabOneActive = false;
-            console.log(this.tabOneActive)
         }
     }
 }
 </script>
-
-<style scoped>
-.active {
-    color: black;
-    background-color: yellow;
-}
-.inactive {
-    color: gray;
-}
-</style>
